@@ -148,7 +148,7 @@ button {
   background-color: var(--color-start);
 }
 
-.start a {
+.start button {
   color: var(--color-win);
 }
 
