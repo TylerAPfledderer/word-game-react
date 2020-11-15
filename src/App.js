@@ -53,7 +53,7 @@ const App = () => {
       if (phraseArray[i] === " ") {
         displayPhrase.push(<li className="space" key={i}>&nbsp;</li>);
       } else {
-        displayPhrase.push(<li className={`letter ${false ? "show" : ""}`} key={i}>{phraseArray[i]}</li>);
+        displayPhrase.push(<li className="letter" key={i}>{phraseArray[i]}</li>);
       }
     }
 
