@@ -1,5 +1,3 @@
-
-
 const Phrase = ({currentPhrase}) => {
   return (
     <div id="phrase" className="section">

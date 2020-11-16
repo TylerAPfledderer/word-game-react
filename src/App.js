@@ -29,37 +29,60 @@ const App = () => {
   const [currentPhrase, setPhrase] = useState([]);
 
   useEffect(() => {
+    // Grab overlay button for the click event in the useEffect
+    const resetBtn = document.querySelector(".btn__reset");
+    // Grab letter buttons and hearts for resetting
+    const letterBtns = document.querySelectorAll(".keyrow button");
+    const hearts = document.querySelectorAll(".tries > img");
+    resetBtn.addEventListener("click", () => {
+      // If click occurs to "start a new game" run a cleanup of the misses, array, buttons, and hearts
+      addMiss(1);
+      setPhrase([]);
+      letterBtns.forEach(letter => {
+        letter.classList.remove("chosen");
+        letter.disabled = false;
+      });
+      hearts.forEach(heart => heart.setAttribute("src", `${LiveHeart}`));
+      
 
-    const phrases = [
-      "Happy Coding",
-      "Never Give Up",
-      "Let it Go",
-      "Piece of Cake",
-      "Back to Square One"
-    ];
+      // Phrases to be selected for the game
+      const phrases = [
+        "Happy Coding",
+        "Never Give Up",
+        "Let it Go",
+        "Piece of Cake",
+        "Back to Square One"
+      ];
+      
+      // Declare a variable to store an array of letters and spaces of a phrase.
+      const displayPhrase = [];
 
-    const displayPhrase = [];
-    const getRandomPhrase = phrases => {
-      // Randomly choose a phrase from 'phrases' array.
-      const chosenPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-      // Turn the characters of the randomly chosen phrase into an array and return it.
-      return chosenPhrase.split('');
-    };
-  
-    const phraseArray = getRandomPhrase(phrases);
-    for (let i = 0; i < phraseArray.length; i++) {
-      // Check if the current index contains a space or a letter, and store it in the appropriate <li>
-      // Push the new <li> into the new array.
-      if (phraseArray[i] === " ") {
-        displayPhrase.push(<li className="space" key={i}>&nbsp;</li>);
-      } else {
-        displayPhrase.push(<li className="letter" key={i}>{phraseArray[i]}</li>);
+      // Function to pick a phrase from the list and return a new array of letters and spaces
+      const getRandomPhrase = phrases => {
+        // Randomly choose a phrase from 'phrases' array.
+        const chosenPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        // Turn the characters of the randomly chosen phrase into an array and return it.
+        return chosenPhrase.split('');
+      };
+      // Store the selected array
+      const phraseArray = getRandomPhrase(phrases);
+
+      // Loop through each letter/space of the selected phrase
+      for (let i = 0; i < phraseArray.length; i++) {
+        // Check if the current index contains a space or a letter, and store it in the appropriate <li>
+        // Push the new <li> into the new array.
+        if (phraseArray[i] === " ") {
+          displayPhrase.push(<li className="space" key={i}>&nbsp;</li>);
+        } else {
+          displayPhrase.push(<li className="letter" key={i}>{phraseArray[i]}</li>);
+        }
       }
-    }
 
-    // Store in the cuurentPhrase state to pass to the Phrase component
-    setPhrase(displayPhrase);
-  }, []);
+      // Store in the cuurentPhrase state to pass to the Phrase component
+      setPhrase(displayPhrase);
+    });
+    
+  });
 
   // Store the number of misses to pass to the number of hearts displayed and the checkWin function.
   const totalTries = 5;
@@ -80,7 +103,7 @@ const App = () => {
      const shownLetters = document.querySelectorAll(".show");
 
      // Create a new header to store a callback statement in the overlay
-     const endText = document.createElement("h3");
+     const endText = document.querySelector("#overlay > h3");
 
      // Grab the button in the overlay
      const overlayBtn = document.querySelector(".btn__reset");
@@ -138,8 +161,9 @@ const App = () => {
    * If false, change a heart in Scoreboard from "liveHeart" to "lostHeart"
    * Run the win condition check against the updated "missed" state
    */
-  const selected = (e) => {
-    const target = e.target;
+  const selected = (event) => {
+    const target = event.target;
+    console.log("selected -> target", target);
     // Highlight the selected letter button
     target.className = "chosen";
     // Prevent the selected letter button from being clicked again.
@@ -180,7 +204,7 @@ const App = () => {
         <h2 className="header">Wheel of Success</h2>
       </div>
       <Phrase currentPhrase={currentPhrase}/>
-      <Keyboard selectedBtn={selected}/>
+      <Keyboard selected={() => selected}/>
       <Scoreboard totalTries={totalTries} />
     </div>
   );

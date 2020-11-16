@@ -1,4 +1,6 @@
-const Keyboard = ({selectedBtn}) => {
+import LetterButton from './LetterButton';
+
+const Keyboard = ({selected}) => {
 
   const row1 = "qwertyuiop".split("");
   const row2 = "asdfghjkl".split("");
@@ -12,7 +14,13 @@ const Keyboard = ({selectedBtn}) => {
   function displayButtons(array) {
     const btnArray = [];
     for (let i = 0; i < array.length; i++) {
-      btnArray.push(<button onClick={(e) => selectedBtn(e)} key={i}>{array[i]}</button>);
+      btnArray.push(
+        <LetterButton 
+          key={i}
+          selected={selected}
+          letterText={array[i]}
+        />
+      );
     }
 
     return btnArray;
