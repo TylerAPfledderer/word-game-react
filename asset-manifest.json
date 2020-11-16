@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/word-game-react/static/css/main.3ebb67b8.chunk.css",
+    "main.js": "/word-game-react/static/js/main.9d6e553b.chunk.js",
+    "main.js.map": "/word-game-react/static/js/main.9d6e553b.chunk.js.map",
+    "runtime-main.js": "/word-game-react/static/js/runtime-main.3a6bcbaf.js",
+    "runtime-main.js.map": "/word-game-react/static/js/runtime-main.3a6bcbaf.js.map",
+    "static/js/2.682431b9.chunk.js": "/word-game-react/static/js/2.682431b9.chunk.js",
+    "static/js/2.682431b9.chunk.js.map": "/word-game-react/static/js/2.682431b9.chunk.js.map",
+    "static/js/3.21874622.chunk.js": "/word-game-react/static/js/3.21874622.chunk.js",
+    "static/js/3.21874622.chunk.js.map": "/word-game-react/static/js/3.21874622.chunk.js.map",
+    "index.html": "/word-game-react/index.html",
+    "static/css/main.3ebb67b8.chunk.css.map": "/word-game-react/static/css/main.3ebb67b8.chunk.css.map",
+    "static/js/2.682431b9.chunk.js.LICENSE.txt": "/word-game-react/static/js/2.682431b9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a6bcbaf.js",
+    "static/js/2.682431b9.chunk.js",
+    "static/css/main.3ebb67b8.chunk.css",
+    "static/js/main.9d6e553b.chunk.js"
+  ]
+}
