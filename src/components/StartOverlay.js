@@ -1,13 +1,19 @@
-const StartOverlay = ({overlayDisplay, title}) => {
+import { useContext, useRef } from 'react';
+import { WordGameContext } from './Context';
+
+const StartOverlay = () => {
+
+  const overlayDisplay = useRef(null);
+  const {overlay} = useContext(WordGameContext);
 
   const hideOverlay = () => {
-    overlayDisplay.style.display = "none";
+    overlayDisplay.current.style.display = "none";
   }
   return (
-    <div id="overlay" className="start">
-      <h2 className="title">{title}</h2>
+    <div id="overlay" ref={overlayDisplay} className="start">
+      <h2 className="title">{overlay.title}</h2>
       <h3>&nbsp;</h3>
-      <button className="btn__reset" onClick={hideOverlay}>Start Game</button>
+      <button className="btn__reset" onClick={() => hideOverlay()}>Start Game</button>
     </div>
   );
 };

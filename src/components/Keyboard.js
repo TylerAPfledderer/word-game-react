@@ -1,6 +1,6 @@
 import LetterButton from './LetterButton';
 
-const Keyboard = ({selected}) => {
+const Keyboard = () => {
 
   const row1 = "qwertyuiop".split("");
   const row2 = "asdfghjkl".split("");
@@ -17,7 +17,6 @@ const Keyboard = ({selected}) => {
       btnArray.push(
         <LetterButton 
           key={i}
-          selected={selected}
           letterText={array[i]}
         />
       );
