@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { WordGameContext } from './Context';
 import Heart from './GameHeart';
 
-const Scoreboard = ({totalTries}) => {
+const Scoreboard = () => {
+
+  const { totalTries } = useContext(WordGameContext);
 
   const heartGroup = [];
   for (let i = 1; i <= totalTries; i++) {
