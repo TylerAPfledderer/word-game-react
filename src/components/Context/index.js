@@ -22,8 +22,15 @@ export const Provider = ({ children }) => {
 	 */
 	const [missed, addMiss] = useState(1); // Starts at one to run the current number against the checkWin function.
 
+  /*
+	 * A place to store the current phrase that is randomly selected
+	 */
 	const [currentPhrase, setPhrase] = useState([]);
 
+  /*
+   * useEffect() to be able to set the game and reset states if you are starting over
+   * Without the click event inside this, some of the DOM elements will not change!
+   */
 	useEffect(() => {
 		// Grab overlay button for the click event in the useEffect
 		const resetBtn = document.querySelector(".btn__reset");
@@ -86,7 +93,7 @@ export const Provider = ({ children }) => {
 			// Store in the cuurentPhrase state to pass to the Phrase component
 			setPhrase(displayPhrase);
 		});
-	});
+	}, []);
 
 	// Store the number of misses to pass to the number of hearts displayed and the checkWin function.
   const totalTries = 5;
