@@ -1,23 +1,30 @@
 import { useContext } from 'react';
 import { WordGameContext } from './Context';
-import Heart from './GameHeart';
+
+import liveHeart from '../images/liveHeart.png';
+import lostHeart from '../images/lostHeart.png';
 
 const Scoreboard = () => {
+  const { misses, totalHearts } = useContext(WordGameContext);
 
-  const { totalTries } = useContext(WordGameContext);
+  const heartList = [];
 
-  const heartGroup = [];
-  for (let i = 1; i <= totalTries; i++) {
-    heartGroup.push(<Heart key={i} />);
+  for (let i = 1; i <= totalHearts; i++) {
+    i <= misses ? heartList.push(lostHeart) : heartList.push(liveHeart);
   }
-  
-  return(
-    <div id="scoreboard" className="section">
+
+  return (
+    <div id='scoreboard' className='section'>
       <ol>
-        {heartGroup}
+        {heartList.map((heart, index) => {
+          return (
+            <li className='tries' key={index}>
+              <img src={heart} alt='' height='35px' width='30px' />
+            </li>
+          );
+        })}
       </ol>
     </div>
-    
   );
 };
 
