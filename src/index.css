@@ -115,6 +115,11 @@ button {
   color: #FFFFFF;
 }
 
+.wrong {
+  background: #f7a964;
+  color: #ffffff;
+}
+
 .btn__reset {
   cursor: pointer;
   padding: 8px;

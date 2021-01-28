@@ -1,19 +1,49 @@
-import { useContext, useRef } from 'react';
-import { WordGameContext } from './Context';
+import { useContext, useEffect, useRef } from "react";
+import { WordGameContext } from "./Context";
+import phraseList from "../data/phraseList";
+
+/**
+ * Function to make sure result passed is 'win' or 'lose'. Else, do not add CSS class to overlay.
+ * @param {String} result - The value in the gameResult state 
+ */
+const checkGameResult = result => {
+  if (result === 'win' || result === 'lose') {
+    return result;
+  }
+
+  return ''; // Do not return null or undefined.
+}
+
+const pickRandomPhrase = phraseList => {
+  const randomIndex = Math.floor(Math.random() * phraseList.length);
+  const randomPhrase = phraseList[randomIndex];
+  return randomPhrase;
+}
 
 const StartOverlay = () => {
+  const { gameResult, setActivePhrase, updateGameResult } = useContext(WordGameContext);
 
-  const overlayDisplay = useRef(null);
-  const {overlayTitle} = useContext(WordGameContext);
+  const overlay = useRef();
 
-  const hideOverlay = () => {
-    overlayDisplay.current.style.display = "none";
-  }
+  const startGame = () => {
+    updateGameResult(null);
+    setActivePhrase( pickRandomPhrase( phraseList() ) );
+    overlay.current.style.display = "none";
+  };
+
+  useEffect(() => {
+    if (gameResult) {
+      overlay.current.style.display = "flex";
+    }
+  }, [gameResult]);
+  
   return (
-    <div id="overlay" ref={overlayDisplay} className="start">
-      <h2 className="title">{overlayTitle}</h2>
+    <div id="overlay" ref={overlay} className={`start ${gameResult ? checkGameResult(gameResult) : ''}`}>
+      <h2 className="title">Wheel of Success</h2>
       <h3>&nbsp;</h3>
-      <button className="btn__reset" onClick={() => hideOverlay()}>Start Game</button>
+      <button className="btn__reset" onClick={() => startGame()}>
+        {gameResult ? "New Game" : "Start Game"}
+      </button>
     </div>
   );
 };
