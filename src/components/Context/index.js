@@ -80,12 +80,11 @@ export const Provider = ({ children }) => {
   return (
     <WordGameContext.Provider
       value={{
-        setActivePhrase,
+        declareActivePhrase,
         activePhrase,
         gameResult,
         updateGameResult,
         misses,
-        declareActivePhrase,
         checkLetter,
         selectedLetter,
         setSelectedLetter,
