@@ -14,6 +14,16 @@ const checkGameResult = (result) => {
   return ''; // Do not return null or undefined.
 };
 
+const resultMessage = (result) => {
+  if (result === 'win') {
+    return "You've Won! Play again?";
+  }
+
+  if (result === 'lose') {
+    return 'Game Over. Try again?';
+  }
+};
+
 const StartOverlay = () => {
   const { gameResult, declareActivePhrase, updateGameResult } = useContext(
     WordGameContext
@@ -40,7 +50,7 @@ const StartOverlay = () => {
       className={`start ${gameResult ? checkGameResult(gameResult) : ''}`}
     >
       <h2 className='title'>Wheel of Success</h2>
-      <h3>&nbsp;</h3>
+      <h3>{gameResult ? resultMessage(gameResult) : ''}</h3>
       <button className='btn__reset' onClick={() => startGame()}>
         {gameResult ? 'New Game' : 'Start Game'}
       </button>
