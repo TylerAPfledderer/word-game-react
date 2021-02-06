@@ -3,11 +3,13 @@ import { WordGameContext } from './Context';
 import PhraseLetter from './PhraseLetter';
 
 const Phrase = () => {
-  const { activePhrase } = useContext(WordGameContext);
+  const { activePhrase, activePhraseDesc } = useContext(WordGameContext);
 
   const currentPhrase = activePhrase && activePhrase.split('');
 
   return (
+    <div>
+    <b>This idiom means: {activePhraseDesc}</b>
     <div id='phrase' className='section'>
       <ul>
         {activePhrase &&
@@ -23,6 +25,7 @@ const Phrase = () => {
             );
           })}
       </ul>
+    </div>
     </div>
   );
 };
