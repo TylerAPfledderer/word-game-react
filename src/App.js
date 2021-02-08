@@ -8,7 +8,7 @@ const App = () => {
     <div className='main-container'>
       <StartOverlay />
       <div id='banner' className='section'>
-        <h2 className='header'>Wheel of Success</h2>
+        <h3 className='header'>Idioms game</h3>
       </div>
       <Phrase />
       <Keyboard />

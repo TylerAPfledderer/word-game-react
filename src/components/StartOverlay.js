@@ -49,7 +49,7 @@ const StartOverlay = () => {
       ref={overlay}
       className={`start ${gameResult ? checkGameResult(gameResult) : ''}`}
     >
-      <h2 className='title'>Wheel of Success</h2>
+      <h2 className='title'>Learn idioms game</h2>
       <h3>{gameResult ? resultMessage(gameResult) : ''}</h3>
       <button className='btn__reset' onClick={() => startGame()}>
         {gameResult ? 'New Game' : 'Start Game'}

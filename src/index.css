@@ -79,8 +79,8 @@ button {
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
+  height: 45px;
+  width: 45px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
@@ -89,6 +89,9 @@ button {
 
   /* To allow animation when a letter is "shown" */
   transition: all 1s;
+}
+
+.letter_line {
 }
 
 .space {
