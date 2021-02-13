@@ -78,6 +78,7 @@ button {
 /* Phrase */
 
 .letter {
+  display: inline-block; /* When use with <span>*/
   font-size: var(--font-size-medium);
   height: 45px;
   width: 45px;
@@ -91,10 +92,12 @@ button {
   transition: all 1s;
 }
 
-.letter_line {
+.word {
+  padding: 0 0 4px 0;
 }
 
 .space {
+  display: inline-block; /* When use with <span>*/
   width: 15px;
 }
 

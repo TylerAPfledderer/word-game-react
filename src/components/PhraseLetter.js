@@ -11,6 +11,7 @@ const PhraseLetter = ({ css, children }) => {
   useEffect(() => {
     const { textContent, classList } = letter.current;
     const regex = new RegExp(`.*[${selectedLetter}].*`, 'i');
+    console.log('This letter: ' + textContent + ", selected letters: " + selectedLetter);
 
     // Null is interpreted as aa string value,
     // So check for null before running regex test
@@ -25,9 +26,9 @@ const PhraseLetter = ({ css, children }) => {
   });
 
   return (
-    <li className={css} ref={letter}>
+    <span className={css} ref={letter}>
       {children}
-    </li>
+    </span>
   );
 };
 
