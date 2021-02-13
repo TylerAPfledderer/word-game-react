@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { WordGameContext } from './Context';
-import PhraseLetter from './PhraseLetter';
 import PhraseWord from './PhraseWord';
 
 const Phrase = () => {

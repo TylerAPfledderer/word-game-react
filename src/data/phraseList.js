@@ -53,6 +53,19 @@ export const phraseExplanationList = () => {
 // Content from https://simple.wikipedia.org/wiki/Idiom#:~:text=An%20idiom%20is%20a%20common,language%20to%20use%20them%20properly.
 export const phraseList = () => {
   return [
+    "Break a leg",
+    "To live it up",
+    "To kick the bucket",
+    "Shape up or ship out",
+    "To shed crocodile tears",
+    "Wild goose chase",
+    "There's no room to swing a cat",
+    "To pay through the nose",
+    "To bark up the wrong tree",
+    "To spill the beans",
+    "It's raining cats and dogs",
+    "To get into hot water",
+    "Chicken-hearted",
     "To chicken out",
     "Top dog",
     "To smell a rat",
@@ -66,6 +79,19 @@ export const phraseList = () => {
 
 export const phraseExplanationList = () => {
   return [
+    "A way to wish someone good luck.",
+    "To enjoy life, to live widely",
+    "To die.",
+    "Used to tell someone that they should leave if they don't improve their behavior or performance",
+    "To cry about something but without actually caring.",
+    "A useless journey or pursuit.",
+    "There is not a lot of space.",
+    "To pay a lot of money, more than is normal.",
+    "To choose the wrong course of action.",
+    "To tell a secret.",
+    "It's raining heavily.",
+    "To get into trouble.",
+    "Frightened or cowardly",
     "Not doing a thing, because of fear.",
     "Leader.",
     "To think that something is wrong.",
