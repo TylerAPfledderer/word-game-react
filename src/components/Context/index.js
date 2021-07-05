@@ -7,6 +7,7 @@ export const Provider = ({ children }) => {
   const [correct, setCorrect] = useState(0);
 
   const [activePhrase, setActivePhrase] = useState(null);
+  const [activePhraseDesc, setActivePhraseDesc] = useState(null);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(null);
   const [gameResult, updateGameResult] = useState(null);
 
@@ -46,14 +47,16 @@ export const Provider = ({ children }) => {
    * Function to choose random phrase and check if it was already already used in previous game
    * @param {Array} phraseList - Total number of phrases to choose from
    */
-  function declareActivePhrase(phraseList) {
+  function declareActivePhrase(phraseList, phraseExplanationList) {
     let randomIndex = Math.floor(Math.random() * phraseList.length);
     // Do not allow a phrase to be repeated twice
     if (randomIndex === currentPhraseIndex) {
       randomIndex++;
     }
     const randomPhrase = phraseList[randomIndex];
+    const desc = phraseExplanationList[randomIndex];
 
+    setActivePhraseDesc(desc);
     setCurrentPhraseIndex(randomIndex);
     setActivePhrase(randomPhrase);
   }
@@ -82,6 +85,7 @@ export const Provider = ({ children }) => {
       value={{
         declareActivePhrase,
         activePhrase,
+        activePhraseDesc,
         gameResult,
         updateGameResult,
         misses,

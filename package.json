@@ -2,11 +2,12 @@
   "name": "word-game-react",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://TylerAPfledderer.github.io/word-game-react",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.3.0",
+    "firebase": "^8.2.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",

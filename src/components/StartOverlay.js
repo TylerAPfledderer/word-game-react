@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import { WordGameContext } from './Context';
-import phraseList from '../data/phraseList';
+import  { phraseList, phraseExplanationList } from '../data/phraseList';
 
 /**
  * Function to make sure result passed is 'win' or 'lose'. Else, do not add CSS class to overlay.
@@ -33,7 +33,7 @@ const StartOverlay = () => {
 
   const startGame = () => {
     updateGameResult(null);
-    declareActivePhrase(phraseList());
+    declareActivePhrase(phraseList(), phraseExplanationList());
     overlay.current.style.display = 'none';
   };
 
@@ -49,7 +49,7 @@ const StartOverlay = () => {
       ref={overlay}
       className={`start ${gameResult ? checkGameResult(gameResult) : ''}`}
     >
-      <h2 className='title'>Wheel of Success</h2>
+      <h2 className='title'>Learn idioms game</h2>
       <h3>{gameResult ? resultMessage(gameResult) : ''}</h3>
       <button className='btn__reset' onClick={() => startGame()}>
         {gameResult ? 'New Game' : 'Start Game'}
